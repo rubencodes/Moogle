@@ -15,12 +15,14 @@ Template.Home.events({
 	//Events that happen on the home page
 	'click button#SearchButton': function () {
 		//Search OMDB API if textbox not empty
+		$("button#SearchButton").attr("disabled", true);
 		if($("input#SearchField").val().trim() != "") {
 			runOMDbSearch($("input#SearchField").val());
 		}
 	},
 	'keyup input#SearchField': function() {
 		//Search OMDB API if enter pressed and textbox not empty
+		$("button#SearchButton").attr("disabled", true);
 		if (event.keyCode == 13 && $("input#SearchField").val().trim() != "") {
 			runOMDbSearch($("input#SearchField").val());
 		}
@@ -53,5 +55,6 @@ function runOMDbSearch(query) {
 		r: "json"
 	}, function(data) {
 		Session.set("result", data);
+		$("button#SearchButton").removeAttr("disabled");
 	});
 }
