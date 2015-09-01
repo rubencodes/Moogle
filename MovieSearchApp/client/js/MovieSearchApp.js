@@ -49,19 +49,30 @@ Template.Result.helpers({
 });
 
 function runOMDbSearch(query) {
+	showLoadingIndicator(true);
 	$.get("http://www.omdbapi.com/", {
 		t: query,
 		plot: "short",
 		r: "json"
 	}, function(data) {
+		showLoadingIndicator(false);
 		$("button#SearchButton").removeAttr("disabled");
-		if(data.response == "True") {
+		if(data.Response == "True") {
 			Session.set("result", data);
 		} else {
 			swal("Sorry, no results were found.")
 		}
 	}).fail(function() {
+		showLoadingIndicator(false);
 		$("button#SearchButton").removeAttr("disabled");
     	swal("Sorry, we encountered an error!")
 	});
+}
+
+function showLoadingIndicator(state) {
+	if(state == true) {
+		$(".search-box").after("<div class=sk-double-bounce><div class=sk-child sk-double-bounce1></div><div class=sk-child sk-double-bounce2></div></div>");
+	} else {
+		$(".sk-double-bounce").remove();
+	}
 }
