@@ -24,6 +24,12 @@ span.yellow {
 span.green {
 	color: #34A853;
 }
+span.black {
+	color: #000;
+}
+span.bold {
+	font-weight: bold;
+}
 
 .btn-success {
 	background: #34A853;
