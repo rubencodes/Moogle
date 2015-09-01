@@ -1,5 +1,5 @@
 <head>
-  <title>MovieSearchApp</title>
+  <title>Moogle</title>
 </head>
 
 <body>
@@ -7,7 +7,7 @@
 </body>
 
 <template name="Home">
-	<div class="container fullpage">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="search-box">
@@ -22,4 +22,28 @@
 			</div>
 		</div>
 	</div>
+	{{#if searchResult}}
+		<div class="well">
+			{{> Result searchResult}}
+		</div>
+	{{/if}}
+</template>
+
+<template name="Result">
+	<h3 class="resultCard">
+		<span class="blue">{{Title}} ({{Year}})</span><br>
+		<small>
+			Rated {{Rated}}<br>
+			<span class="blue">Released:</span> {{Released}}<br>
+			<span class="blue">Runtime:</span> {{Runtime}}<br>
+			<span class="blue">Starring:</span> {{Actors}}<br>
+			<span class="blue">IMDb Rating:</span>
+			<div class="progress">
+			  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{imdbRating}}" aria-valuemin="0" aria-valuemax="10" style="width: {{imdbPercent imdbRating}}%">
+				  {{imdbRating}}/10
+				<span class="sr-only">IMDb Rating {{imdbRating}}</span>
+			  </div>
+			</div>
+		</small><br><br>
+	</h3>
 </template>

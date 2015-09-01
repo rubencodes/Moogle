@@ -1,13 +1,7 @@
 /* CSS declarations go here */
-.fullpage {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 .search-box {
-	margin-top: -30%;
+	margin-top: 25vh;
+	margin-bottom: 50px;
 }
 
 h1 {
@@ -44,4 +38,16 @@ input#SearchField {
 button#SearchButton {
 	padding: 10px 10px;
 	border-radius: 0;
+}
+
+.resultCard {
+	width: 90%;
+    margin: 50px auto;
+    background: rgb(255, 255, 255);
+    padding: 40px 20px;
+    box-shadow: 0 1px 5px 1px rgb(187, 187, 187);
+}
+
+.well {
+	margin-bottom: 0;
 }
