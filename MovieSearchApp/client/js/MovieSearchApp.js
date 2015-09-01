@@ -1,15 +1,16 @@
-// counter starts at 0
-Session.setDefault('counter', 0);
-
-Template.hello.helpers({
-counter: function () {
-  return Session.get('counter');
-}
+//Runs when the Home template is rendered
+Template.Home.onRendered(function() {
+	//place cursor in textfield when page first loads
+	$("input#SearchField").focus();
 });
 
-Template.hello.events({
-'click button': function () {
-  // increment the counter when button is clicked
-  Session.set('counter', Session.get('counter') + 1);
-}
+Template.Home.helpers({
+	//Helpers needed on the home page
+});
+
+Template.Home.events({
+	//Events that happen on the home page
+	'click button#SearchButton': function () {
+		//Search OMDB API
+	}
 });
