@@ -1,0 +1,47 @@
+/* CSS declarations go here */
+.fullpage {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search-box {
+	margin-top: -30%;
+}
+
+h1 {
+	font-size: 75px;
+	margin-bottom: 20px;
+}
+
+span.red {
+	color: #EA4335;
+}
+
+span.blue {
+	color: #4285F4;
+}
+
+span.yellow {
+	color: #FBBC05;
+}
+
+span.green {
+	color: #34A853;
+}
+
+.btn-success {
+	background: #34A853;
+}
+
+input#Search {
+	border: 1px #4285F4 solid;
+	border-radius: 0;
+	padding: 20px 10px;
+}
+
+input#Search + span>button {
+	padding: 10px 10px;
+	border-radius: 0;
+}
