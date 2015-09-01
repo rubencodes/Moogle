@@ -54,8 +54,12 @@ function runOMDbSearch(query) {
 		plot: "short",
 		r: "json"
 	}, function(data) {
-		Session.set("result", data);
 		$("button#SearchButton").removeAttr("disabled");
+		if(data.response == "True") {
+			Session.set("result", data);
+		} else {
+			swal("Sorry, no results were found.")
+		}
 	}).fail(function() {
 		$("button#SearchButton").removeAttr("disabled");
     	swal("Sorry, we encountered an error!")
