@@ -32,11 +32,17 @@ Template.Result.helpers({
 	imdbPercent: function(rating) {
 		return rating*10;
 	},
+	//detects if IMDB score returned is valid
 	validIMDbScore: function() {
 		return this.imdbRating != "N/A";
 	},
+	//detects if Metascore returned is valid
 	validMetascore: function() {
 		return this.Metascore != "N/A";
+	},
+	//detects if poster URL returned is valid
+	validPosterURL: function() {
+		return this.Poster != "N/A";
 	}
 });
 

@@ -31,45 +31,55 @@
 
 <template name="Result">
 	<div class="resultCard">
-		<h3><span class="blue">{{Title}} ({{Year}})</span><br><br></h3>
-
 		<div class="row">
-			<div class="col-sm-4">
-				<span class="bold black">Rated</span><br>
-				{{Rated}}
-			</div>
-			<div class="col-sm-4">
-				<span class="bold black">Released</span><br>
-				{{Released}}
-			</div>
-			<div class="col-sm-4">
-				<span class="bold black">Runtime</span><br>
-				{{Runtime}}
-			</div>
-		</div><br>
+			<div class="{{#if validPosterURL}}col-sm-8{{else}}col-sm-12{{/if}}">
+				<h3><span class="blue">{{Title}} ({{Year}})</span><br><br></h3>
 
-			<span class="blue bold">Genre:</span> {{Genre}}<br>
-			<span class="blue bold">Starring:</span> {{Actors}}<br>
-			<span class="blue bold">Directed By:</span> {{Director}}<br>
-			<span class="blue bold">Written By:</span> {{Writer}}<br>
-			<span class="blue bold">Plot:</span> {{Plot}}<br><br>
-			{{#if validIMDbScore}}
-			<span class="blue bold">IMDb Rating:</span>
-			<div class="progress">
-			  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{imdbRating}}" aria-valuemin="0" aria-valuemax="10" style="width: {{imdbPercent imdbRating}}%">
-				  {{imdbRating}}/10
-				<span class="sr-only">IMDb Rating {{imdbRating}}/10</span>
-			  </div>
+				<div class="row">
+					<div class="col-sm-4">
+						<span class="bold black">Rated</span><br>
+						{{Rated}}
+					</div>
+					<div class="col-sm-4">
+						<span class="bold black">Released</span><br>
+						{{Released}}
+					</div>
+					<div class="col-sm-4">
+						<span class="bold black">Runtime</span><br>
+						{{Runtime}}
+					</div>
+				</div><br>
+
+				<span class="blue bold">Genre:</span> {{Genre}}<br>
+				<span class="blue bold">Starring:</span> {{Actors}}<br>
+				<span class="blue bold">Directed By:</span> {{Director}}<br>
+				<span class="blue bold">Written By:</span> {{Writer}}<br>
+				<span class="blue bold">Plot:</span> {{Plot}}<br>
+				<span class="blue bold">Awards:</span> {{Awards}}<br><br>
+				{{#if validIMDbScore}}
+					<span class="blue bold">IMDb Rating:</span>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{imdbRating}}" aria-valuemin="0" aria-valuemax="10" style="width: {{imdbPercent imdbRating}}%">
+						  {{imdbRating}}/10
+						<span class="sr-only">IMDb Rating {{imdbRating}}/10</span>
+					  </div>
+					</div>
+				{{/if}}
+				{{#if validMetascore}}
+					<span class="blue bold">Metascore:</span>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{Metascore}}" aria-valuemin="0" aria-valuemax="10" style="width: {{Metascore}}%">
+						  {{Metascore}}/100
+						<span class="sr-only">Metascore {{Metascore}}/100</span>
+					  </div>
+					</div>
+				{{/if}}
+			</div>
+			{{#if validPosterURL}}
+			<div class="col-md-4">
+				<img src="{{Poster}}" class="poster">
 			</div>
 			{{/if}}
-			{{#if validMetascore}}
-			<span class="blue bold">Metascore:</span>
-			<div class="progress">
-			  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{Metascore}}" aria-valuemin="0" aria-valuemax="10" style="width: {{Metascore}}%">
-				  {{Metascore}}/100
-				<span class="sr-only">Metascore {{Metascore}}/100</span>
-			  </div>
-			</div>
-			{{/if}}
+		</div>
 	</div>
 </template>

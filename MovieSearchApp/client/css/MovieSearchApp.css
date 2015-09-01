@@ -57,3 +57,8 @@ button#SearchButton {
 .well {
 	margin-bottom: 0;
 }
+
+.poster {
+	width: 100%;
+	max-width: 300px;
+}
